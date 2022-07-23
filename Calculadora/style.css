@@ -1,0 +1,49 @@
+.calculadora {
+  display: flex;
+  align-items: center;
+  background-color: gray;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.botao-numeros {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.number {
+  width: 16vw;
+  height: 10vh;
+  background-color: rgb(71, 69, 69);
+  color: white;
+  font-size: 1.4rem;
+  border: solid 1px white;
+  cursor: pointer;
+}
+
+.number:active {
+  background-color: rgb(48, 46, 46);
+}
+
+.botoes-operacao {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.botao-operacao .number {
+  width: 16vw;
+}
+
+#valor {
+  font-size: 3rem;
+}
