@@ -5,10 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <title>Document</title>
+    <title>Calculadora</title>
   </head>
   <body>
     <div class="calculadora">
+      <navbar class="navbar">
+        <li>
+          <ul>
+            <h1>Calculadora</h1>
+          </ul>
+        </li>
+      </navbar>
       <div class="tela-valor">
         <h2 id="valor">0</h2>
       </div>
@@ -24,12 +31,13 @@
         <button class="valor-8 number">8</button>
         <button class="valor-9 number">9</button>
         <button class="valor-0 number">0</button>
-      </div>
-      <div class="botoes-operacao">
         <button id="soma" class="number">+</button>
         <button id="menos" class="number">-</button>
+        <button id="dividir" class="number">%</button>
+        <button id="multiplicar" class="number">x</button>
         <button id="igual" class="number">=</button>
       </div>
+      <footer>Criado por Gustavo Henrique</footer>
     </div>
 
     <script src="./script.js"></script>
