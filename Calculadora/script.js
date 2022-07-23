@@ -20,12 +20,12 @@ const valor0 = document.querySelector(".valor-0");
 
 //  Declaração das Variaveis
 
+let flagParaDepoisDoIgual = true;
 let valorMostrado = "";
 let numerosVisual = "";
 let valores = [];
 let local;
 let trocaEntreOperacoes;
-
 // Declaração dos Botoes do 0 ao 9
 
 valor1.addEventListener("click", () => {
@@ -108,25 +108,42 @@ botaoDividir.addEventListener("click", () => {
   valorDaTela.innerText = divisao();
 });
 
+botaoMultiplicar.addEventListener("click", () => {
+  valorDaTela.innerText = multiplicacao();
+});
+
 // Botao Igual
 
 botaoIgual.addEventListener("click", () => {
   switch (trocaEntreOperacoes) {
     case 1:
       valorDaTela.innerText = soma(1);
+      flagParaDepoisDoIgual = true;
       break;
     case 2:
       valorDaTela.innerText = subtracao(1);
+      flagParaDepoisDoIgual = 1;
+
+      break;
     case 3:
-      valorDaTela.innerText = divisao(i);
+      valorDaTela.innerText = divisao(1);
+      flagParaDepoisDoIgual = 1;
+
+      break;
+    case 4:
+      valorDaTela.innerText = multiplicacao(1);
+      flagParaDepoisDoIgual = 1;
+
+      break;
   }
 });
 
 // Botao Soma
 
 function soma(flag) {
-  trocaEntreOperacoes = 1;
   transformarEmInteiro();
+  trocaEntreOperacoes = 1;
+
   if (valores.length == 2) {
     let somados = valores[0] + valores[1];
     valores = [];
@@ -172,6 +189,9 @@ function subtracao(flag) {
 }
 
 function divisao(flag) {
+  trocaEntreOperacoes = 3;
+  transformarEmInteiro();
+
   if (valores.length == 2) {
     let dividido = valores[0] / valores[1];
     valores = [];
@@ -192,9 +212,35 @@ function divisao(flag) {
   return numerosVisual;
 }
 
-function multiplicacao(flag) {}
+function multiplicacao(flag) {
+  trocaEntreOperacoes = 4;
+  transformarEmInteiro();
+
+  if (valores.length == 2) {
+    let multiplicado = valores[0] * valores[1];
+    valores = [];
+    valores.push(multiplicado);
+    if (flag == 1) {
+      numerosVisual = multiplicado;
+    } else {
+      numerosVisual = multiplicado + " * ";
+    }
+  } else {
+    if (flag == 1) {
+      numerosVisual = multiplicado;
+    } else {
+      numerosVisual += " * ";
+    }
+  }
+  return numerosVisual;
+}
 
 function transformarEmInteiro() {
+  if (valorDaTela != "") {
+    local = valorDaTela.innerText;
+    console.log(local);
+    valorMostrado = "";
+  }
   local = parseInt(valorMostrado);
   valores.push(local);
   valorMostrado = "";
