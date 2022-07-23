@@ -104,6 +104,10 @@ botaoSubtrair.addEventListener("click", () => {
   valorDaTela.innerText = subtracao();
 });
 
+botaoDividir.addEventListener("click", () => {
+  valorDaTela.innerText = divisao();
+});
+
 // Botao Igual
 
 botaoIgual.addEventListener("click", () => {
@@ -113,6 +117,8 @@ botaoIgual.addEventListener("click", () => {
       break;
     case 2:
       valorDaTela.innerText = subtracao(1);
+    case 3:
+      valorDaTela.innerText = divisao(i);
   }
 });
 
@@ -165,7 +171,26 @@ function subtracao(flag) {
   return numerosVisual;
 }
 
-function divisao(flag) {}
+function divisao(flag) {
+  if (valores.length == 2) {
+    let dividido = valores[0] / valores[1];
+    valores = [];
+    valores.push(dividido);
+    if (flag == 1) {
+      numerosVisual = dividido;
+    } else {
+      numerosVisual = dividido + " / ";
+    }
+  } else {
+    if (flag == 1) {
+      d;
+      numerosVisual = dividido;
+    } else {
+      numerosVisual += " / ";
+    }
+  }
+  return numerosVisual;
+}
 
 function multiplicacao(flag) {}
 
