@@ -239,7 +239,7 @@ function transformarEmInteiro() {
   if (valorDaTela != "") {
     local = valorDaTela.innerText;
     console.log(local);
-    valorMostrado = "";
+    // valorMostrado = "";
   }
   local = parseInt(valorMostrado);
   valores.push(local);
