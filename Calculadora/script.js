@@ -16,93 +16,93 @@ const valor0 = document.querySelector(".valor-0");
 let valorMostrado = "";
 let numerosVisual = "";
 let valores = [];
+let local;
 
 valor1.addEventListener("click", () => {
   valorMostrado += valor1.textContent;
   numerosVisual += valor1.textContent;
-  valorDaTela.innerText = valorMostrado;
+  valorDaTela.innerText = numerosVisual;
 });
 
 valor2.addEventListener("click", () => {
   valorMostrado += valor2.textContent;
   numerosVisual += valor2.textContent;
 
-  valorDaTela.innerText = valorMostrado;
+  valorDaTela.innerText = numerosVisual;
 });
 
 valor3.addEventListener("click", () => {
   valorMostrado += valor3.textContent;
   numerosVisual += valor3.textContent;
 
-  valorDaTela.innerText = valorMostrado;
+  valorDaTela.innerText = numerosVisual;
 });
 
 valor4.addEventListener("click", () => {
   valorMostrado += valor4.textContent;
   numerosVisual += valor4.textContent;
 
-  valorDaTela.innerText = valorMostrado;
+  valorDaTela.innerText = numerosVisual;
 });
 
 valor5.addEventListener("click", () => {
   valorMostrado += valor5.textContent;
   numerosVisual += valor5.textContent;
 
-  valorDaTela.innerText = valorMostrado;
+  valorDaTela.innerText = numerosVisual;
 });
 
 valor6.addEventListener("click", () => {
   valorMostrado += valor6.textContent;
   numerosVisual += valor6.textContent;
 
-  valorDaTela.innerText = valorMostrado;
+  valorDaTela.innerText = numerosVisual;
 });
 
 valor7.addEventListener("click", () => {
   valorMostrado += valor7.textContent;
   numerosVisual += valor7.textContent;
 
-  valorDaTela.innerText = valorMostrado;
+  valorDaTela.innerText = numerosVisual;
 });
 
 valor8.addEventListener("click", () => {
   valorMostrado += valor8.textContent;
   numerosVisual += valor8.textContent;
 
-  valorDaTela.innerText = valorMostrado;
+  valorDaTela.innerText = numerosVisual;
 });
 
 valor9.addEventListener("click", () => {
   valorMostrado += valor9.textContent;
   numerosVisual += valor9.textContent;
 
-  valorDaTela.innerText = valorMostrado;
+  valorDaTela.innerText = numerosVisual;
 });
 
 valor0.addEventListener("click", () => {
   valorMostrado += valor0.textContent;
   numerosVisual += valor0.textContent;
-  valorDaTela.innerText = valorMostrado;
+  valorDaTela.innerText = numerosVisual;
 });
 
 botaoSoma.addEventListener("click", () => {
-  let local = parseInt(valorMostrado);
-  valores.push(local);
-  console.log(local);
-  numerosVisual += " + ";
-  valorDaTela.innerText = valorMostrado;
-  if (valores.length == 2) {
-    console.log(soma(valores[0], valores[1]));
-    soma(valores[0] + valores[1]);
-    valorMostrado = "" + soma(valores[0], valores[1]);
-    valores = [];
-    valores.push(soma(valores[0], valores[1]));
-  }
-  valo;
+  valorDaTela.innerText = soma();
 });
 
 botaoIgual.addEventListener("click", () => {});
 
-function soma(i, j) {
-  return i + j;
+function soma() {
+  local = parseInt(valorMostrado);
+  valores.push(local);
+  valorMostrado = "";
+  if (valores.length == 2) {
+    let somados = valores[0] + valores[1];
+    numerosVisual = somados + " + ";
+    valores = [];
+    valores.push(somados);
+  } else {
+    numerosVisual += " + ";
+  }
+  return numerosVisual;
 }
