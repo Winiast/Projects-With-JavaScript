@@ -20,7 +20,7 @@ const valor0 = document.querySelector(".valor-0");
 
 //  Declaração das Variaveis
 
-let flagParaDepoisDoIgual = true;
+let flagParaDepoisDoIgual = false;
 let valorMostrado = "";
 let numerosVisual = "";
 let valores = [];
@@ -122,17 +122,17 @@ botaoIgual.addEventListener("click", () => {
       break;
     case 2:
       valorDaTela.innerText = subtracao(1);
-      flagParaDepoisDoIgual = 1;
+      flagParaDepoisDoIgual = true;
 
       break;
     case 3:
       valorDaTela.innerText = divisao(1);
-      flagParaDepoisDoIgual = 1;
+      flagParaDepoisDoIgual = true;
 
       break;
     case 4:
       valorDaTela.innerText = multiplicacao(1);
-      flagParaDepoisDoIgual = 1;
+      flagParaDepoisDoIgual = true;
 
       break;
   }
@@ -141,6 +141,16 @@ botaoIgual.addEventListener("click", () => {
 // Botao Soma
 
 function soma(flag) {
+  if (flagParaDepoisDoIgual == true) {
+    flagParaDepoisDoIgual = false;
+    trocaEntreOperacoes = 1;
+
+    return (numerosVisual += " + ");
+  }
+  if (valorDaTela == "") {
+    trocaEntreOperacoes = 1;
+    return (numerosVisual += " + ");
+  }
   transformarEmInteiro();
   trocaEntreOperacoes = 1;
 
@@ -166,8 +176,18 @@ function soma(flag) {
 // Botao Subtração
 
 function subtracao(flag) {
-  trocaEntreOperacoes = 2;
+  if (flagParaDepoisDoIgual == true) {
+    trocaEntreOperacoes = 2;
 
+    flagParaDepoisDoIgual = false;
+    return (numerosVisual += " - ");
+  }
+  if (valorDaTela == "") {
+    trocaEntreOperacoes = 2;
+
+    return (numerosVisual += " - ");
+  }
+  trocaEntreOperacoes = 2;
   transformarEmInteiro();
   if (valores.length == 2) {
     let subtraidos = valores[0] - valores[1];
@@ -189,6 +209,17 @@ function subtracao(flag) {
 }
 
 function divisao(flag) {
+  if (flagParaDepoisDoIgual == true) {
+    flagParaDepoisDoIgual = false;
+    trocaEntreOperacoes = 3;
+
+    return (numerosVisual += " / ");
+  }
+  if (valorDaTela == "") {
+    trocaEntreOperacoes = 3;
+
+    return (numerosVisual += " / ");
+  }
   trocaEntreOperacoes = 3;
   transformarEmInteiro();
 
@@ -213,6 +244,17 @@ function divisao(flag) {
 }
 
 function multiplicacao(flag) {
+  if (flagParaDepoisDoIgual == true) {
+    trocaEntreOperacoes = 4;
+
+    flagParaDepoisDoIgual = false;
+    return (numerosVisual += " * ");
+  }
+  if (valorDaTela == "") {
+    trocaEntreOperacoes = 4;
+
+    return (numerosVisual += " * ");
+  }
   trocaEntreOperacoes = 4;
   transformarEmInteiro();
 
